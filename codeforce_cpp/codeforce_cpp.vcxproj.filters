@@ -32,7 +32,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="2018.08.03\b.cpp">
+    <ClCompile Include="2018.08.08\b.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
