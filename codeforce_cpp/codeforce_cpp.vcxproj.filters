@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
+    <Text Include="in.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -32,7 +33,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="2018.08.17\a.cpp">
+    <ClCompile Include="2018.08.18\b.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
