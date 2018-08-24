@@ -115,3 +115,10 @@
 #include <unordered_map>
 #include <unordered_set>
 #endif
+
+long long __gcd(long long a, long long b)
+{
+	if (b == 0) return a;
+	a %= b;
+	return __gcd(b, a);
+}
