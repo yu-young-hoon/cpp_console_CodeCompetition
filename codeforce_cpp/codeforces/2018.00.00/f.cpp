@@ -1,5 +1,5 @@
 #ifdef WIN32
-#include "..\\stdc++.h"
+#include "..\\..\\stdc++.h"
 #else
 #include <bits/stdc++.h>
 #endif
