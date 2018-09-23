@@ -18,6 +18,7 @@ int main() {
 	cin >> n >> h;
 	vector<ll> s;
 	vector<ll> e;
+
 	ll ins;
 	for (ll i = 0; i < n; ++i) {
 		cin >> ins;
@@ -25,64 +26,24 @@ int main() {
 		cin >> ins;
 		e.push_back(ins);
 	}
-	ll ins1, ins2;
-	ll front = 0, result =0;
-	for (ll j = 0; j < n; ++j) {
-		front = 0;
-		htemp = h;
-		for (ll i = j; i < n; ++i) {
-			if (i == j) {
-				ins1 = s[i];
-				ins2 = e[i];
-				front += ins2 - ins1;
-			}
-			else {
-				ins1 = s[i];
-				htemp -= ins1 - ins2;
-				front += ins1 - ins2;
+	s.push_back(999999);
 
-				if (htemp >= 0) {
-					ins2 = e[i];
-					front += ins2 - ins1;
-				}
-				else {
-					front += htemp;
-					break;
-				}
-			}
+	ll downV = 0;
+	ll sumV = 0;
+	ll pivot = 1;
+	ll result = 0;
+	for (ll i = 0; i < n; ++i) {
+		ll tdownV = downV + s[i+1] - e[i];
+		ll tsumV = sumV + e[i+1] - s[i+1];;
+		while (s[pivot] - e[pivot - 1] + downV < h) {
+			downV += s[pivot] - e[pivot - 1];
+			sumV += e[pivot] - s[pivot];
+			pivot++;
 		}
-		if (htemp > 0)
-			front += htemp;
-		result = max(front, result);
-	}
+		result = max(sumV + h, result);
 
-	for (ll j = 0; j < n; ++j) {
-		front = 0;
-		htemp = h;
-		for (ll i = j; i < n; ++i) {
-			if (i == j) {
-				ins1 = e[n - i - 1]; 
-				ins2 = s[n - i - 1];
-				front += ins1 - ins2;
-			}
-			else {
-				ins1 = e[n - i - 1];
-				htemp -= ins2 - ins1;
-				front += ins2 - ins1;
-
-				if (htemp >= 0) {
-					ins2 = s[n - i - 1];
-					front += ins1 - ins2;
-				}
-				else {
-					front += htemp;
-					break;
-				}
-			}
-		}
-		if (htemp > 0)
-			front += htemp;
-		result = max(front, result);
+		downV -= tdownV;
+		sumV -= tsumV;
 	}
 
 	cout << result;
