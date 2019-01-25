@@ -14,11 +14,11 @@ int main() {
 	streambuf *cinbuf = cin.rdbuf();
 	cin.rdbuf(in.rdbuf());
 #endif
-	int x, y, c;
-	int rx= 0, ry= 0;
+	ll x, y, c;
+	ll rx= 0, ry= 0;
 	cin >> c;
 
-	for (int i = 0 ; i < c*2 ; i++) {
+	for (ll i = 0 ; i < c*2 ; i++) {
 		cin >> x >> y;
 		rx += x;
 		ry += y;
