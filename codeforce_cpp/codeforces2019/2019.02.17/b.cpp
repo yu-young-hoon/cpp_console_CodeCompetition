@@ -14,5 +14,15 @@ int main() {
 	streambuf *cinbuf = cin.rdbuf();
 	cin.rdbuf(in.rdbuf());
 #endif
+	ll a, b;
+	cin >> a >> b;
+
+	ll ab = (a - 1) % (b);
+
+	cout << (a - 1) + ab;
+
 	return 0;
 }
+
+// TODO
+// http://codeforces.com/contest/1113

@@ -22,23 +22,26 @@ int main() {
 	ifstream in("../../in.txt");
 #endif
 #endif
-	ll a, d, m; // a=g d~=b m
-	ll g, p, b;
-	cin >> a >> d >> m;
-	cin >> g >> p >> b;
-	if ((g-a) < 0) {
-		cout << "NO";
-		return 0;
+	ll c;
+	cin >> c;
+	string input;
+	for (ll i = 0; i < c; ++i) {
+		input.clear();
+		cin >> input;
+		sort(input.begin(), input.end());
+		reverse(input.begin(), input.end());
+		bool result = true;
+		for (ll j = 0; j < input.size() - 1 ; ++j) {
+			if (input[j] != input[j + 1] + 1) {
+				cout << "NO";
+				result = false;
+				break;
+			}
+		}
+		if (result) {
+			cout << "YES";
+		}
+		cout << "\n";
 	}
-	if ((g-a) + p - d < 0) {
-		cout << "NO";
-		return 0;
-	}
-
-	if (g+p+b - (a+d+m) < 0) {
-		cout << "NO";
-		return 0;
-	}
-	cout << "YES";
 	return 0;
 }
