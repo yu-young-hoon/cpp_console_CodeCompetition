@@ -21,49 +21,37 @@ int main() {
 #ifdef __APPLE__
 	ifstream in("../../in.txt");
 #endif
+	streambuf *cinbuf = cin.rdbuf();
+	cin.rdbuf(in.rdbuf());
 #endif
-	multiset<char> aa;
+	string aa;
 	string first;
 	string seconds;
-	while (1) {
-		aa.clear();
-		first.clear();
-		seconds.clear();
-
-		getline(cin, first);
-		getline(cin, seconds);
-		ll ss = seconds.size();
-		if (first.size() == 0 && seconds.size() == 0)
-			return 0;
-		if (first.size() == 0 || seconds.size() == 0) {
-			printf("\n");
-			continue;
-		}
-			
-		for (ll i = 0; i < first.size(); ++i) {
+	while (getline(cin, first) && getline(cin, seconds)) {
+		ll ss = seconds.length();
+		for (ll i = 0; i < first.length(); ++i) {
 			for (ll j = 0; j < ss; ++j) {
 				ll a = seconds.find(first[i]);
 				if (a != string::npos) {
-					aa.insert(first[i]);
+					aa.append(first.substr(i, 1));
 					seconds.erase(a, 1);
-					ss-- ;
-					i--;
+					ss--;
 					break;
 				}
 			}
 		}
-		multiset<char>::iterator aaa = aa.begin();
-		ll asdf = aa.size();
-		for (ll i = 0; i < asdf; ++i) {
-			printf("%c", *(aaa++));
-		}
-		printf("\n");
-		
-		
+		sort(aa.begin(), aa.end());
+		cout << aa << endl;
+		aa.clear();
+		first.clear();
+		seconds.clear();
 	}
 
 	return 0;
 }
-
-// TODO
-// https://www.acmicpc.net/problem/1622
+// remind
+// 94번 제출하고
+// 17년 10월에 처음 실패
+// 18년 8월에 재도전 실패
+// 19년 2월부터 4월까지 생각날때마다 해봤는데
+// 입출력문제였다니 속상하다...
