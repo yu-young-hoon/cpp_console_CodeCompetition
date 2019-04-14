@@ -33,7 +33,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="backjun\etc\etc.cpp">
+    <ClCompile Include="codeforces2019\2019.04.13\a.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
