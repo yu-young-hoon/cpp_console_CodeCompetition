@@ -21,6 +21,8 @@ int main() {
 #ifdef __APPLE__
 	ifstream in("../../in.txt");
 #endif
+	streambuf *cinbuf = cin.rdbuf();
+	cin.rdbuf(in.rdbuf());
 #endif
 	return 0;
 }
