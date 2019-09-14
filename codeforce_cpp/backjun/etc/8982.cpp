@@ -19,10 +19,13 @@ int main() {
 	ifstream in("in.txt");
 #endif
 #ifdef __APPLE__
-	ifstream in("../../in.txt");
+	ifstream in("in.txt");
 #endif
 	streambuf *cinbuf = cin.rdbuf();
 	cin.rdbuf(in.rdbuf());
 #endif
+	ll aa;
 
+	cin>>aa;
+	cout<<aa;
 }
