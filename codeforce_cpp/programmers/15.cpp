@@ -1,13 +1,7 @@
-#if defined(WIN32) | defined(__APPLE__)
-#ifdef WIN32
-#include "..\\stdc++.h"
-#endif
-#ifdef __APPLE__
-#include "../stdc++.h"
-#endif
-#else
-#include <bits/stdc++.h>
-#endif
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
 
 typedef long long ll;
 
@@ -17,11 +11,13 @@ struct region {
 	string regionId;
 	int count;
 };
+
 struct prod {
 	string prodId;
 	int count;
 	list<region> regions;
 };
+
 vector<string> split(const string& s, const string& delim, const bool keep_empty = true) {
 	vector<string> result;
 	if (delim.empty()) {
@@ -53,6 +49,7 @@ bool compare(const prod& first, const prod& second)
 		return first.prodId < second.prodId;
 	}
 }
+
 bool compare2(const region& first, const region& second)
 {
 	if (first.count < second.count)
@@ -65,16 +62,6 @@ bool compare2(const region& first, const region& second)
 }
 
 int main() {
-#if defined(WIN32) | defined(__APPLE__)
-#ifdef WIN32
-	ifstream in("in.txt");
-#endif
-#ifdef __APPLE__
-	ifstream in("../in.txt");
-#endif
-	streambuf *cinbuf = cin.rdbuf();
-	cin.rdbuf(in.rdbuf());
-#endif
 	string startDate, endDate;
 	int prodCount;
 	
@@ -97,45 +84,48 @@ int main() {
 		cin >> prodData;
 		const vector<string> prods = split(prodData, "|");
 		const vector<string> prodDates = split(prods[0].c_str(), "-");
-		int sYear = atoi(prodDates[0].c_str());
-		int sMonth = atoi(prodDates[1].c_str());
-		int sDay = atoi(prodDates[2].c_str());
-		string prodId = prods[1];
-		string regionId = prods[2];
+		int pYear = atoi(prodDates[0].c_str());
+		int pMonth = atoi(prodDates[1].c_str());
+		int pDay = atoi(prodDates[2].c_str());
+        if (sYear <= pYear && sMonth <= pMonth && sDay <= pDay && pYear <= eYear && pMonth <= eMonth && pDay <= eDay) {
+            string prodId = prods[1];
+            string regionId = prods[2];
 
-		bool findProd = false;
-		list<prod>::iterator prodItr = prodList.begin();
-		for (prodItr; prodItr != prodList.end(); ++prodItr) {
-			if (((prod)*prodItr).prodId == prodId) {
-				findProd = true;
-				bool findRegion = false;
-				list<region>::iterator regionItr = prodItr->regions.begin();
-				for (regionItr; regionItr != prodItr->regions.end(); ++regionItr) {
-					if (regionItr->regionId == regionId) {
-						(regionItr)->count++;
-						findRegion = true;
-					}
-				}
-				if (!findRegion) {
-					region r;
-					r.regionId = regionId;
-					r.count = 1;
-					(prodItr)->regions.push_back(r);
-				}
-				(prodItr)->count++;
-			}
-		}
-		if (!findProd) {
-			region r;
-			r.regionId = regionId;
-			r.count = 1;
-			
-			prod p;
-			p.prodId = prodId;
-			p.count = 1;
-			p.regions.push_back(r);
-			prodList.push_back(p);
-		}
+            bool findProd = false;
+            list<prod>::iterator prodItr = prodList.begin();
+            for (prodItr; prodItr != prodList.end(); ++prodItr) {
+                if (((prod)*prodItr).prodId == prodId) {
+                    findProd = true;
+                    bool findRegion = false;
+                    list<region>::iterator regionItr = prodItr->regions.begin();
+                    for (regionItr; regionItr != prodItr->regions.end(); ++regionItr) {
+                        if (regionItr->regionId == regionId) {
+                            (regionItr)->count++;
+                            findRegion = true;
+                        }
+                    }
+                    if (!findRegion) {
+                        region r;
+                        r.regionId = regionId;
+                        r.count = 1;
+                        (prodItr)->regions.push_back(r);
+                    }
+                    (prodItr)->count++;
+                }
+            }
+            if (!findProd) {
+                region r;
+                r.regionId = regionId;
+                r.count = 1;
+                
+                prod p;
+                p.prodId = prodId;
+                p.count = 1;
+                p.regions.push_back(r);
+                prodList.push_back(p);
+            }
+        }
+		
 	}
 	prodList.sort(compare);
 	
@@ -155,4 +145,3 @@ int main() {
 
 	return 0;
 }
-// 35

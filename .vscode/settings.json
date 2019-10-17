@@ -17,6 +17,7 @@
         "list": "cpp",
         "string": "cpp",
         "vector": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "fstream": "cpp"
     }
 }
