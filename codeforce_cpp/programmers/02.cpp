@@ -26,24 +26,22 @@ int main() {
 #endif
 
     string inValue;
-    for (ll i = 0 ; i < 100 ; ++i) {
-        cin >> inValue;
-        if (inValue.size() == 1) {
-            cout << ((inValue[0] - '0') - 1) * 91 + 1 << endl;
-        }
+    cin >> inValue;
+    if (inValue.size() == 1) {
+        cout << ((inValue[0] - '0') - 1) * 91 << endl;
+    }
         
-        if (inValue.size() == 2) {
-            ll rr =  ((inValue[0] - '0') - 1) * 91;
-            rr += (inValue[1] - '0') * 10 - 10;
-            cout << rr + 2 <<endl;
-        }
+    if (inValue.size() == 2) {
+        ll rr =  ((inValue[0] - '0') - 1) * 91;
+        rr += (inValue[1] - '0') * 10 - 10;
+        cout << rr + 1 <<endl;
+    }
 
-        if (inValue.size() == 3) {
-            ll rr =  ((inValue[0] - '0') - 1) * 91;
-            rr += (inValue[1] - '0') * 10 - 10;
-            rr += inValue[2] - '0';
-            cout << rr + 2 <<endl;
-        }
+    if (inValue.size() == 3) {
+        ll rr =  ((inValue[0] - '0') - 1) * 91;
+        rr += (inValue[1] - '0') * 10 - 10;
+        rr += inValue[2] - '0';
+        cout << rr + 1 <<endl;
     }
 }
 // 35

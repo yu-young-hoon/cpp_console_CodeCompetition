@@ -41,13 +41,11 @@ int main() {
     multiset<ll>::reverse_iterator rit = mans.rbegin();
     for (rit ; rit != mans.rend(); ++rit) {
         ll tman = *rit;
-        cout <<"대상 "<< tman <<endl;
         bool isInsert = false;
         multiset<ll>::reverse_iterator srit = ships.rbegin();
         for (srit ; srit != ships.rend(); ++srit) {
             ll tship = *srit;
             if (tship + tman <= maxWeight) {
-                cout <<"탑승 "<< tship << " " <<tman <<endl;
                 ships.insert(tman + tship);
                 ships.erase(ships.find(tship));
                 isInsert = true;
@@ -55,14 +53,8 @@ int main() {
             }
         }
         if (!isInsert) {
-            cout <<"배추가 "<< tman <<endl;
             ships.insert(tman);
         }
     }
-    multiset<ll>::reverse_iterator srit = ships.rbegin();
-    for (srit ; srit != ships.rend(); ++srit) {
-        cout <<"배배 "<< *srit <<endl;
-    }
     return cout << ships.size(),0;
 }
-// 50
