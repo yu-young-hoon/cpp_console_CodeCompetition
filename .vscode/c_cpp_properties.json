@@ -1,0 +1,77 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceRoot}"
+            ],
+            "defines": [],
+            "intelliSenseMode": "clang-x64",
+            "browse": {
+                "path": [
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        },
+        {
+            "name": "Linux",
+            "includePath": [
+                "/usr/include",
+                "/usr/local/include",
+                "${workspaceRoot}"
+            ],
+            "defines": [],
+            "browse": {
+                "path": [
+                    "/usr/include",
+                    "/usr/local/include",
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "intelliSenseMode": "clang-x64",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        },
+        {
+            "name": "Win32",
+            "compilerPath": "D:/program/mingw/bin/g++.exe",
+            "includePath": [
+                "D:/program/mingw/lib/gcc/mingw32/8.2.0/include",
+                "D:/program/mingw/lib/gcc/mingw32/8.2.0/include-fixed",
+                "D:/program/mingw/lib/gcc/mingw32/8.2.0/include/c++",
+                "D:/program/mingw/lib/gcc/mingw32/8.2.0/include/c++/bits",
+                "D:/program/mingw/include",
+                "${workspaceRoot}"
+            ],
+            "defines": [
+                "_DEBUG"
+            ],
+            "browse": {
+                "path": [
+                    "D:/program/mingw/lib/gcc/mingw32/8.2.0/include",
+                    "D:/program/mingw/lib/gcc/mingw32/8.2.0/include-fixed",
+                    "D:/program/mingw/lib/gcc/mingw32/8.2.0/include/c++",
+                    "D:/program/mingw/lib/gcc/mingw32/8.2.0/include/c++/bits",
+                    "D:/program/mingw/include",
+                    "${workspaceRoot}"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "intelliSenseMode": "clang-x64",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
