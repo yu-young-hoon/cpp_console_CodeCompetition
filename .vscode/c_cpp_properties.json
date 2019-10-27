@@ -54,7 +54,9 @@
                 "${workspaceRoot}"
             ],
             "defines": [
-                "_DEBUG"
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
             ],
             "browse": {
                 "path": [
