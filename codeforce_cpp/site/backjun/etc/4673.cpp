@@ -11,7 +11,7 @@ d(n)을 n과 n의 각 자리수를 더하는 함수라고 정의하자. 예를 �
 */
 
 int main() {
-#ifndef NDEBUG
+#ifndef YH
 	ifstream in("in.txt");
 	streambuf *cinbuf = cin.rdbuf();
 	cin.rdbuf(in.rdbuf());

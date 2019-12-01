@@ -56,7 +56,8 @@
             "defines": [
                 "_DEBUG",
                 "UNICODE",
-                "_UNICODE"
+                "_UNICODE",
+                "YH"
             ],
             "browse": {
                 "path": [

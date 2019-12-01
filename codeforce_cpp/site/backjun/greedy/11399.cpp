@@ -3,8 +3,12 @@
 typedef long long ll;
 using namespace std;
 
+/*
+ATM 인출 시간 더하기
+*/
+
 int main() {
-#ifndef NDEBUG
+#ifndef YH
 	ifstream in("in.txt");
 	streambuf *cinbuf = cin.rdbuf();
 	cin.rdbuf(in.rdbuf());
