@@ -1,15 +1,18 @@
-#ifdef WIN32
-#include "..\\stdc++.h"
+ï»¿#ifdef WIN32 
+#include "..\\..\\..\\stdc++.h"
+#elif __APPLE__
+#include "../../../stdc++.h"
 #else
 #include <bits/stdc++.h>
 #endif
 
+
 #define MAX 300001
 
 using namespace std;
-// caseº°·Î ¼±ÅÃÇÏ·Á°í ÇÏ¿´Áö¸¸ ¸ÂÁö ¾ÊÀ½
-// Â¦¼ö ¿­Àº ¾Æ·¡ È¦¼ö ¿­Àº À§¿¡ ¿­À» ¸¶Áö¸· Á¾·á ÁöÁ¡À¸·Î ¼±ÅÃÇÒ¼ö ÀÖ°í
-// Á¡È­½ÄÀ» °è»êÇÑ DP·Î °è»ê
+// caseë³„ë¡œ ì„ íƒí•˜ë ¤ê³  í•˜ì˜€ì§€ë§Œ ë§žì§€ ì•ŠìŒ
+// ì§ìˆ˜ ì—´ì€ ì•„ëž˜ í™€ìˆ˜ ì—´ì€ ìœ„ì— ì—´ì„ ë§ˆì§€ë§‰ ì¢…ë£Œ ì§€ì ìœ¼ë¡œ ì„ íƒí• ìˆ˜ ìžˆê³ 
+// ì í™”ì‹ì„ ê³„ì‚°í•œ DPë¡œ ê³„ì‚°
 long long w, in[2][MAX], zig[MAX], sumR[MAX], sumRR[2][MAX];
 int main() {
 	
@@ -27,8 +30,8 @@ int main() {
 
 
 	for (int i = w-1; i >= 0; --i) {
-		sumRR[0][i] = sumRR[0][i + 1] - sumR[i + 1] + in[0][i] * (w * 2 - 1) + in[1][i] * (i*2); // À§
-		sumRR[1][i] = sumRR[1][i + 1] - sumR[i + 1] + in[0][i] * (i * 2) + in[1][i] * (w * 2 - 1); // ¾Æ·¡
+		sumRR[0][i] = sumRR[0][i + 1] - sumR[i + 1] + in[0][i] * (w * 2 - 1) + in[1][i] * (i*2); // ìœ„
+		sumRR[1][i] = sumRR[1][i + 1] - sumR[i + 1] + in[0][i] * (i * 2) + in[1][i] * (w * 2 - 1); // ì•„ëž˜
 	}
 
 	long long ans = 0;

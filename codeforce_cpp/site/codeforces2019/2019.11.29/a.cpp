@@ -1,7 +1,14 @@
+#ifdef WIN32 
+#include "..\\..\\..\\stdc++.h"
+#elif __APPLE__
+#include "../../../stdc++.h"
+#else
 #include <bits/stdc++.h>
+#endif
 
 typedef long long ll;
 using namespace std;
+
 /*
 	6
 	1 1 1
@@ -13,7 +20,7 @@ using namespace std;
 	사탕을 2개씩 최대 먹을수 있는 횟수
 */
 int main() {
-#ifndef YH
+#ifdef YH
 	ifstream in("in.txt");
 	streambuf *cinbuf = cin.rdbuf();
 	cin.rdbuf(in.rdbuf());
