@@ -14,15 +14,15 @@ int solution(vector<int>& A, int X) {
 	if (N == 0) {
 		return -1;
 	}
-	int l = 0; // ¿ÞÂÊ
-	int r = N - 1; // ¿À¸¥ÂÊ
-	while (A[l] == X) { //¿ÞÂÊÀÌ¶û ¿À¸¥ÂÊÀÌ¶û °°¾ÆÁú¶§±îÁö
-		int m = (l + r) / 2; // Áß¾Ó°ª
-		if (A[m] >= X) { // Áß¾ÓÀÌ Ã£´Â°Í º¸´Ù Å©´Ù¸é
-			r = m - 1; // ¿À¸¥Á·À» Áß¾Óº¸´Ù 1ÀÛ°Ô
+	int l = 0; // ì™¼ìª½
+	int r = N - 1; // ì˜¤ë¥¸ìª½
+	while (A[l] == X) { //ì™¼ìª½ì´ëž‘ ì˜¤ë¥¸ìª½ì´ëž‘ ê°™ì•„ì§ˆë•Œê¹Œì§€
+		int m = (l + r) / 2; // ì¤‘ì•™ê°’
+		if (A[m] >= X) { // ì¤‘ì•™ì´ ì°¾ëŠ”ê²ƒ ë³´ë‹¤ í¬ë‹¤ë©´
+			r = m - 1; // ì˜¤ë¥¸ì¡±ì„ ì¤‘ì•™ë³´ë‹¤ 1ìž‘ê²Œ
 		}
-		else { //Áß¾ÓÀÌ Ã£´Â°Åº¸´Ù ÀÛ°Å³ª °°À»¶§
-			l = m; // ¿ÞÂÊÀ» Áß¾ÓÀ¸·Î
+		else { //ì¤‘ì•™ì´ ì°¾ëŠ”ê±°ë³´ë‹¤ ìž‘ê±°ë‚˜ ê°™ì„ë•Œ
+			l = m; // ì™¼ìª½ì„ ì¤‘ì•™ìœ¼ë¡œ
 		}
 	}
 	if (A[l] == X) {

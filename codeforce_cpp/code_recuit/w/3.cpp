@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 using namespace std;
-// ¸ö¹«°Ô, Ãş, °¡´É »ç¶÷¼ö, ÃÑ »ç¶÷¼ö, ÃÑ ¹«°Ô
+// ëª¸ë¬´ê²Œ, ì¸µ, ê°€ëŠ¥ ì‚¬ëŒìˆ˜, ì´ ì‚¬ëŒìˆ˜, ì´ ë¬´ê²Œ
 
 int solution(vector<int> &A, vector<int> &B, int M, int X, int Y) {
 	int weight = 0;
@@ -16,8 +16,8 @@ int solution(vector<int> &A, vector<int> &B, int M, int X, int Y) {
 	int beforFlo = 0;
 	int count = 0;
 	while (A.size() != 0) {
-		if (A.front() + weight < Y && man < X) { // ¹«°Ô°¡ ³²À¸¸é Ãß°¡
-			weight += A.front(); // ¹«°Ô¿¡ Ãß°¡
+		if (A.front() + weight < Y && man < X) { // ë¬´ê²Œê°€ ë‚¨ìœ¼ë©´ ì¶”ê°€
+			weight += A.front(); // ë¬´ê²Œì— ì¶”ê°€
 			A.erase(A.begin());
 			if (beforFlo != B.front()){
 				beforFlo = B.front();
@@ -26,14 +26,14 @@ int solution(vector<int> &A, vector<int> &B, int M, int X, int Y) {
 			B.erase(B.begin());
 			man++;
 		}
-		else { // ¹Ù´ÚÀ¸·Î ³»·Á¿ÔÀ»¶§
+		else { // ë°”ë‹¥ìœ¼ë¡œ ë‚´ë ¤ì™”ì„ë•Œ
 			weight = 0;
 			man = 0;
 			beforFlo = 0;
 			count++;
 		}
 	}
-	count++; // ¸¶Áö¸· 1ÃşÀ¸·Î
+	count++; // ë§ˆì§€ë§‰ 1ì¸µìœ¼ë¡œ
 	return count;
 }
 

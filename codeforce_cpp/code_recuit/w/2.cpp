@@ -10,12 +10,12 @@
 using namespace std;
 // photo.jpg, Warsaw, 2013-09-05 14:08:15
 // Warsaw02.jpg
-// ½Ã°£ ¿À¸§Â÷¼ø, ³×ÀÌ¹ÖÀº Áö¿ª+¼ø¹ø(ÀÚ¸´¼ö¿¡ ¸ÂÃç¼­ 0).È®ÀåÀÚ, ¸ÖÆ¼¶óÀÎ
+// ì‹œê°„ ì˜¤ë¦„ì°¨ìˆœ, ë„¤ì´ë°ì€ ì§€ì—­+ìˆœë²ˆ(ìë¦¿ìˆ˜ì— ë§ì¶°ì„œ 0).í™•ì¥ì, ë©€í‹°ë¼ì¸
 // 
 struct FILES{
 	string city;
-	string count; // Áö¿ªº° ¼ø¼­
-	int num = 0; // µé¾î¿Â¼ıÀÚ
+	string count; // ì§€ì—­ë³„ ìˆœì„œ
+	int num = 0; // ë“¤ì–´ì˜¨ìˆ«ì
 	string photoname;
 	string extension;
 	string date;
@@ -23,10 +23,10 @@ struct FILES{
 };
 struct CITY_COUNT {
 	string city;
-	int num = 0; // °³¼ö
-	int count = 0; // ÆÄÀÏ Áö¿ªº° ¼ıÀÚ Ä«¿îÆ®
+	int num = 0; // ê°œìˆ˜
+	int count = 0; // íŒŒì¼ ì§€ì—­ë³„ ìˆ«ì ì¹´ìš´íŠ¸
 };
-string solution(string &S) { // 2Áø ¹®ÀÚ¿­
+string solution(string &S) { // 2ì§„ ë¬¸ìì—´
 	vector<FILES> vFiles;
 	vector<CITY_COUNT> vCitys;
 	int num = 0;
@@ -35,20 +35,20 @@ string solution(string &S) { // 2Áø ¹®ÀÚ¿­
 	{
 		unsigned int pos = S.find("\n");
 		
-		string str = S.substr(0, ((pos == -1)?S.length():pos)); // Ãß°¡µÉ ¹®ÀÚ¿­
-		S = S.substr(((pos == -1) ? S.length() : pos + 1), S.length()); // ÀÌ¿ÜÀÇ ¹®ÀÚ¿­
+		string str = S.substr(0, ((pos == -1)?S.length():pos)); // ì¶”ê°€ë  ë¬¸ìì—´
+		S = S.substr(((pos == -1) ? S.length() : pos + 1), S.length()); // ì´ì™¸ì˜ ë¬¸ìì—´
 		
 		FILES file;
-		unsigned int namePos = str.find("."); // ÀÌ¸§ Á¾·áÁöÁ¡
-		unsigned int extentionPos = str.find(", "); // È®ÀåÀÚ Á¾·áÁöÁ¡
-		unsigned int cityPos = str.substr(extentionPos + 2).find(", "); //È®ÀåÀÚ±îÁö ÀÚ¸¥ÈÄ µµ½Ã Á¾·áÁöÁ¡ 
+		unsigned int namePos = str.find("."); // ì´ë¦„ ì¢…ë£Œì§€ì 
+		unsigned int extentionPos = str.find(", "); // í™•ì¥ì ì¢…ë£Œì§€ì 
+		unsigned int cityPos = str.substr(extentionPos + 2).find(", "); //í™•ì¥ìê¹Œì§€ ìë¥¸í›„ ë„ì‹œ ì¢…ë£Œì§€ì  
 		
-		assert(namePos != -1 && "name ¿À·ù");
-		assert(extentionPos != -1 && "È®ÀåÀÚ ¿À·ù");
-		assert(cityPos != -1 && "µµ½Ã ¿À·ù");
+		assert(namePos != -1 && "name ì˜¤ë¥˜");
+		assert(extentionPos != -1 && "í™•ì¥ì ì˜¤ë¥˜");
+		assert(cityPos != -1 && "ë„ì‹œ ì˜¤ë¥˜");
 
-		file.num = num++; // µé¾î¿Ê ¼ıÀÚ ±âÀÔ
-		file.photoname = str.substr(0, namePos); // ÀÌ¸§
+		file.num = num++; // ë“¤ì–´ì˜· ìˆ«ì ê¸°ì…
+		file.photoname = str.substr(0, namePos); // ì´ë¦„
 		file.extension = str.substr(namePos + 1, extentionPos - namePos - 1);
 		file.city = str.substr(extentionPos + 2).substr(0, cityPos);
 		file.date = str.substr(extentionPos + 3+ cityPos, str.length());
@@ -68,17 +68,17 @@ string solution(string &S) { // 2Áø ¹®ÀÚ¿­
 			vCitys.push_back(city);
 		}
 
-		// ½Ã°£ ±¸ÇÏ±â
+		// ì‹œê°„ êµ¬í•˜ê¸°
 		istringstream ss(file.date);
 		struct std::tm tm;
 		ss >> std::get_time(&tm, "%Y-%m-%d %H:%M:%S");
 		unsigned int time = mktime(&tm);
-		assert(time != -1 && "µµ½Ã ¿À·ù");
+		assert(time != -1 && "ë„ì‹œ ì˜¤ë¥˜");
 		file.epoch = time;
 
 		vFiles.push_back(file);
 	}
-	sort(vFiles.begin(), vFiles.end(), [](const FILES& a, const FILES& b) { // ½Ã°£¼øÀ¸·Î Á¤·Ä
+	sort(vFiles.begin(), vFiles.end(), [](const FILES& a, const FILES& b) { // ì‹œê°„ìˆœìœ¼ë¡œ ì •ë ¬
 		if (a.epoch < b.epoch)
 			return true;
 		else
@@ -106,14 +106,14 @@ string solution(string &S) { // 2Áø ¹®ÀÚ¿­
 			}
 		}
 	}
-	sort(vFiles.begin(), vFiles.end(), [](const FILES& a, const FILES& b) { // µé¾î¿Â ¼øÀ¸·Î ´Ù½ÃÁ¤·Ä
+	sort(vFiles.begin(), vFiles.end(), [](const FILES& a, const FILES& b) { // ë“¤ì–´ì˜¨ ìˆœìœ¼ë¡œ ë‹¤ì‹œì •ë ¬
 		if (a.num < b.num)
 			return true;
 		else
 			return false;
 	});
 
-	for (int i = 0; i < vFiles.size(); ++i) { // Ãâ·Â Çü½Ä
+	for (int i = 0; i < vFiles.size(); ++i) { // ì¶œë ¥ í˜•ì‹
 		result.append(vFiles[i].city).append(vFiles[i].count).append(".").append(vFiles[i].extension).append("\n");
 	}
 	return result;

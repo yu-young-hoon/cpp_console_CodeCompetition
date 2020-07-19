@@ -1,9 +1,12 @@
-#ifdef WIN32
-#include "..\\stdc++.h"
+#ifdef WIN32 
+#include "..\\..\\..\\stdc++.h"
+#elif __APPLE__
+#include "../../../stdc++.h"
 #else
 #include <bits/stdc++.h>
 #endif
-#include <iostream>
+
+typedef long long ll;
 using namespace std;
 
 int main() {
