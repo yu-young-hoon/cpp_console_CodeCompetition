@@ -145,7 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="site\codeforces2019\2019.11.29\a.cpp" />
+    <ClCompile Include="code_site\programers\programmers-k-intern-67256.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
